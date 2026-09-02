@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omen Athletics | Social Wellness Club in St. Louis</title>
+<meta name="description" content="Omen Athletics is a social wellness club in downtown St. Louis: group fitness, a 20-person sauna, cold plunges, free nutrition coaching, and community for body, mind, and soul. Your first class is on us.">
+<meta property="og:title" content="Omen Athletics">
+<meta property="og:description" content="Get well and stay well, together. Group fitness, sauna, cold plunge, and free nutrition coaching in downtown St. Louis. Your first class is free.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/gym.jpg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#FF3400">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,700;0,800;1,400;1,700&display=swap">
+<style>
+  :root {
+    --orange: #FF3400;
+    --black: #000000;
+    --gray: #E1E1E1;
+    --white: #FFFFFF;
+    --cream: #F3F1EA;
+    --ink-2: #4B4B4B;
+    --font: "Helvetica Neue", Helvetica, "Archivo", Arial, sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--white); color: var(--black);
+    font-family: var(--font); font-size: 1.0625rem; line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, p { margin: 0; }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+  .wrap { width: min(1240px, 100% - 2.5rem); margin-inline: auto; }
+
+  /* Type system */
+  .display { font-weight: 800; text-transform: uppercase; letter-spacing: -0.035em; line-height: 0.9; text-wrap: balance; }
+  .bracket { font-weight: 700; letter-spacing: -0.04em; line-height: 0.95; text-transform: lowercase; }
+  .bracket::before { content: "["; } .bracket::after { content: "]"; }
+  .paren { font-weight: 700; letter-spacing: -0.02em; }
+  .paren::before { content: "("; } .paren::after { content: ")"; }
+  .lede { font-size: clamp(1.125rem, 1.5vw, 1.375rem); line-height: 1.35; font-weight: 500; }
+  .hl { background: var(--orange); color: var(--white); padding: 0 0.25em; font-weight: 700; text-transform: uppercase; }
+  .hl-b { background: var(--black); color: var(--white); padding: 0 0.25em; font-weight: 700; text-transform: uppercase; }
+  .tag { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.02em; }
+  .measure { max-width: 34em; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 1rem 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em;
+    font-size: 1rem; text-decoration: none; border: 3px solid transparent; line-height: 1;
+    transition: transform 120ms ease;
+  }
+  .btn:hover { transform: translate(-2px, -2px); }
+  .btn-orange { background: var(--orange); color: var(--white); border-color: var(--orange); }
+  .btn-black { background: var(--black); color: var(--white); border-color: var(--black); }
+  .btn-outline { background: transparent; color: var(--black); border-color: var(--black); }
+  .btn-outline-w { background: transparent; color: var(--white); border-color: var(--white); }
+  .btn-white { background: var(--white); color: var(--black); border-color: var(--white); }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 20; background: var(--white); border-bottom: 3px solid var(--black); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 0; }
+  .brand { display: inline-flex; text-decoration: none; }
+  .brand img { height: 44px; width: auto; }
+  nav { display: flex; gap: 1.5rem; font-size: 0.95rem; font-weight: 700; }
+  nav a { text-decoration: none; }
+  nav a:hover { color: var(--orange); }
+  @media (max-width: 800px) { nav { display: none; } }
+  .btn-sm { padding: 0.7rem 1rem; font-size: 0.85rem; }
+
+  /* Hero */
+  .hero { position: relative; background: var(--black); color: var(--cream); overflow: hidden; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: saturate(0.9) contrast(1.05); }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.7) 100%); }
+  .hero .wrap { position: relative; z-index: 1; min-height: clamp(520px, 78vh, 760px); display: grid; align-content: end; gap: 1.5rem; padding: 6rem 0 3rem; }
+  .hero h1 { font-size: clamp(3.25rem, 11vw, 9.5rem); }
+  .hero-row { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.5rem; }
+  .hero-row p { max-width: 30em; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+  /* Values strip */
+  .strip { background: var(--orange); color: var(--white); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
+  .strip .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 800px) { .strip .wrap { grid-template-columns: 1fr 1fr; } }
+  .strip .v { display: flex; align-items: center; gap: 0.9rem; padding: 1.1rem 1.25rem 1.1rem 0; font-weight: 700; font-size: clamp(1.1rem, 2vw, 1.6rem); letter-spacing: -0.03em; }
+  .strip .v img { height: 34px; width: auto; }
+
+  /* Sections */
+  section { padding: clamp(3.5rem, 8vw, 7rem) 0; }
+  .sec-head { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+  @media (max-width: 800px) { .sec-head { grid-template-columns: 1fr; } }
+  .sec-head h2 { font-size: clamp(2.75rem, 7vw, 6rem); }
+  .sec-head .lede { max-width: 30em; }
+
+  /* Whole person */
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 3px solid var(--black); }
+  @media (max-width: 800px) { .three { grid-template-columns: 1fr; } }
+  .three > div { padding: 1.5rem 1.5rem 2rem 0; border-right: 3px solid var(--black); margin-right: 1.5rem; }
+  .three > div:last-child { border-right: 0; margin-right: 0; }
+  @media (max-width: 800px) { .three > div { border-right: 0; margin-right: 0; border-bottom: 3px solid var(--black); padding-right: 0; } .three > div:last-child { border-bottom: 0; } }
+  .three h3 { font-size: clamp(2rem, 4vw, 3.25rem); margin: 0.25rem 0 0.75rem; }
+  .three .num { font-weight: 700; color: var(--orange); font-size: 0.95rem; }
+  .three p { color: var(--ink-2); }
+
+  /* Included (black) */
+  .included { background: var(--black); color: var(--cream); position: relative; overflow: hidden; }
+  .included .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.32; filter: grayscale(1) contrast(1.15); }
+  .included .wrap { position: relative; z-index: 1; }
+  .included .sec-head h2 { color: var(--white); }
+  .inc-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; font-size: clamp(1.15rem, 2.2vw, 1.75rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; }
+  .inc-list li { padding-left: 0; }
+  .inc-list li::after { content: "."; }
+  .inc-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+  @media (max-width: 900px) { .inc-grid { grid-template-columns: 1fr; } }
+  .results { font-size: clamp(2rem, 4.5vw, 3.75rem); margin-top: 1.25rem; color: var(--white); }
+  .results span { color: var(--orange); }
+  .partners { border-top: 2px solid rgba(255,255,255,0.35); padding-top: 1.25rem; display: grid; gap: 0.5rem; color: var(--gray); font-size: 0.95rem; }
+  .partners b { color: var(--white); }
+
+  /* Hot / cold / faith */
+  .hc { display: grid; grid-template-columns: 1fr 1fr; border: 3px solid var(--black); }
+  @media (max-width: 800px) { .hc { grid-template-columns: 1fr; } }
+  .hc > div { padding: clamp(1.75rem, 3.5vw, 3rem); display: grid; gap: 1rem; align-content: start; }
+  .hc .hot { background: var(--orange); color: var(--white); }
+  .hc .cold { background: var(--gray); color: var(--black); border-left: 3px solid var(--black); }
+  @media (max-width: 800px) { .hc .cold { border-left: 0; border-top: 3px solid var(--black); } }
+  .hc h3 { font-size: clamp(2.25rem, 4.5vw, 4rem); }
+  .hc .stats { display: flex; flex-wrap: wrap; gap: 2rem; padding-top: 1rem; border-top: 2px solid currentColor; margin-top: 0.5rem; }
+  .hc .stat b { display: block; font-size: 1.75rem; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .hc .stat span { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+  .verse { font-style: italic; font-weight: 500; }
+  .verse cite { display: block; font-style: normal; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; margin-top: 0.35rem; }
+
+  /* Memberships (orange) */
+  .members { background: var(--orange); color: var(--white); text-align: center; }
+  .members h2 { font-size: clamp(3.5rem, 12vw, 11rem); margin-bottom: clamp(2rem, 5vw, 4rem); }
+  .tiers { display: grid; gap: clamp(1.5rem, 3.5vw, 3rem); max-width: 900px; margin-inline: auto; }
+  .promo { max-width: 900px; margin: 0 auto clamp(2rem, 5vw, 3.5rem); border: 3px solid var(--white); padding: clamp(1.25rem, 3vw, 2rem); display: grid; gap: 0.5rem; }
+  .promo .display { font-size: clamp(2.25rem, 6vw, 4.5rem); }
+  .promo .price { text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: 0.12em; }
+  .promo-sub { font-size: clamp(1.05rem, 1.6vw, 1.35rem); font-weight: 500; }
+  .tier h3 { font-size: clamp(1.75rem, 4vw, 3rem); }
+  .tier p { font-size: clamp(1.35rem, 3.2vw, 2.5rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; }
+  .tier .price { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 0.18em; font-variant-numeric: tabular-nums; }
+  .members .paren { display: inline-block; margin-top: clamp(2rem, 5vw, 4rem); font-size: 1rem; }
+  .members .fine { margin-top: 0.75rem; font-size: 0.9rem; opacity: 0.9; }
+  .members .actions { margin-top: 2rem; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+
+  /* Schedule (gray) */
+  .schedule { background: var(--gray); }
+  .sched-grid { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 2.5rem; }
+  @media (max-width: 900px) { .sched-grid { grid-template-columns: 1fr; } }
+  .sched h3 { font-size: 1.1rem; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .sched .day { font-weight: 700; margin-top: 0.75rem; }
+  .times { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 400; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .times span { background: var(--white); padding: 0.15em 0.5em; }
+  .split { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1rem; align-items: baseline; }
+  .split dt { font-weight: 700; color: var(--ink-2); font-size: 0.95rem; }
+  .split dd { margin: 0; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; font-size: 1.15rem; }
+  .sched-note { font-size: 1rem; color: var(--ink-2); max-width: 28em; }
+  .sched-photo { position: relative; min-height: 320px; border: 3px solid var(--black); overflow: hidden; background: var(--black); }
+  .sched-photo img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: center 12%; }
+  .sched-photo .cap { position: absolute; left: 1rem; bottom: 1rem; }
+
+  /* Classes / embed */
+  .classes .sec-head h2 { font-size: clamp(2.75rem, 7vw, 6rem); }
+  .embed-frame { position: relative; border: 3px solid var(--black); background: var(--white); min-height: 520px; padding: 1rem; }
+  .embed-frame wl-schedule-widget { display: block; min-height: 480px; }
+  .classes-note { margin-top: 1rem; color: var(--ink-2); }
+
+  /* Run club banner */
+  .runclub { background: var(--black); color: var(--cream); padding: 0; border-top: 3px solid var(--black); }
+  .runclub .grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; }
+  @media (max-width: 900px) { .runclub .grid { grid-template-columns: 1fr; } }
+  .runclub .photo { position: relative; overflow: hidden; min-height: 360px; }
+  .runclub .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .runclub .copy { padding: clamp(2.5rem, 5vw, 5rem); display: grid; gap: 1.25rem; align-content: center; }
+  .runclub h2 { font-size: clamp(3rem, 7vw, 6.5rem); }
+  .runclub h2 .circle { position: relative; display: inline-block; }
+  .runclub h2 .circle svg { position: absolute; left: -8%; top: -12%; width: 116%; height: 130%; overflow: visible; }
+  .runclub p { max-width: 28em; color: var(--gray); }
+
+  /* Visit */
+  .visit-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 2.5rem; }
+  @media (max-width: 900px) { .visit-grid { grid-template-columns: 1fr; } }
+  .visit h2 { font-size: clamp(2.75rem, 6vw, 5rem); }
+  .visit h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem; color: var(--orange); }
+  .visit address { font-style: normal; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; }
+  .visit p a { text-decoration-thickness: 2px; }
+  .hours { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 1rem; font-variant-numeric: tabular-nums; }
+  .hours span:nth-child(odd) { color: var(--ink-2); }
+
+  footer { background: var(--black); color: var(--white); padding: 2.5rem 0; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.25rem; }
+  footer img { height: 30px; }
+  footer .meta img { height: 22px; width: auto; }
+  footer .icons { display: flex; gap: 1.25rem; }
+  footer .icons img { height: 26px; }
+  footer .meta { display: flex; gap: 1.25rem; align-items: center; font-size: 0.9rem; }
+  footer .est { border: 2px solid var(--white); border-radius: 999px; padding: 0.2rem 0.8rem; font-weight: 700; font-size: 0.8rem; }
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Omen Athletics home"><img src="assets/brand/logo-horizontal-black.png" alt="omen athletics."></a>
+    <nav aria-label="Page sections">
+      <a href="#approach">Whole person</a>
+      <a href="#included">What's included</a>
+      <a href="#memberships">Memberships</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-orange btn-sm" href="https://lp.omenathleticsstl.com/">Claim your free class</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0;">
+    <img class="hero-img" src="assets/img/gym.jpg" alt="A packed group class at Omen Athletics: kettlebell swings in front, box step-ups and rowers behind, orange steel columns and brick walls." width="1600" height="752">
+    <div class="wrap">
+      <h1 class="display">Your first class is on us.</h1>
+      <div class="hero-row">
+        <p class="lede">Fun, functional, effective group training. A 20-person sauna. Cold plunges. Free nutrition coaching. A community that wants you to get well and stay well, body, mind, and soul.</p>
+        <div class="actions">
+          <a class="btn btn-orange" href="https://lp.omenathleticsstl.com/">Claim your free class</a>
+          <a class="btn btn-outline-w" href="#memberships">See memberships</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-label="What Omen is built on">
+    <div class="wrap">
+      <div class="v"><img src="assets/brand/icon-faith-white.png" alt="">faith</div>
+      <div class="v"><img src="assets/brand/icon-fitness-white.png" alt="">fitness</div>
+      <div class="v"><img src="assets/brand/icon-wellness-white.png" alt="">wellness</div>
+      <div class="v"><img src="assets/brand/icon-community-white.png" alt="">community</div>
+    </div>
+  </div>
+
+  <section id="approach">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="bracket">whole person</h2>
+        <p class="lede">Most gyms train one thing. We think a healthy person is built in three places at once, and neglecting any one of them eventually shows up in the others. Every detail of an Omen membership was chosen because it works on all three.</p>
+      </div>
+      <div class="three">
+        <div>
+          <span class="num">body</span>
+          <h3 class="display">Fun. Functional. Effective.</h3>
+          <p>Group workouts programmed by AJ, who brings almost 15 years of personal training experience. You'll work hard, move well, and want to come back tomorrow. Elite-level Hyrox training for anyone chasing a start line.</p>
+        </div>
+        <div>
+          <span class="num">mind</span>
+          <h3 class="display">Steady and clear.</h3>
+          <p>Cold plunges, sauna time, contrast therapy, and breath work classes. Mental health maintenance is part of the routine here, not an add-on. Clean music, always.</p>
+        </div>
+        <div>
+          <span class="num">soul</span>
+          <h3 class="display">Grow in faith, together.</h3>
+          <p>Scripture, honest conversation, and discipleship woven into the ordinary rhythm of getting well with people who know your name. Free nutrition coaching is where most of those conversations start.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="included" class="included">
+    <img class="bg" src="assets/img/row.jpg" alt="" width="1600" height="1140">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="bracket">what's included</h2>
+        <p class="lede">A group fitness environment like you've never experienced before. Programming designed to be fun, functional, and effective while making you stronger, healthier, and happier.</p>
+      </div>
+      <div class="inc-grid">
+        <ul class="inc-list">
+          <li><span class="hl">Unlimited</span> group fitness classes</li>
+          <li><span class="hl">Unlimited</span> access to open gym times</li>
+          <li>Elite-level Hyrox training</li>
+          <li>Access to <span class="hl">free nutritional coaching</span></li>
+          <li><span class="hl">Unlimited</span> access to hot therapy (sauna)</li>
+          <li><span class="hl">Unlimited</span> access to cold therapy (cold plunge)</li>
+          <li>Contrast therapy and breath work group classes</li>
+          <li>Free access to <span class="hl">all</span> Omen Athletics social wellness events</li>
+          <li>Coaches, wellness professionals, and a community that values social, emotional, and spiritual wellness as much as physical wellness</li>
+          <li>Exclusive discounts at top-tier local wellness businesses in St. Louis</li>
+        </ul>
+        <div>
+          <p class="display results">And most importantly: <span>results.</span></p>
+          <p class="lede" style="margin: 1.25rem 0 2rem; color: var(--gray);">Our mission is to help you get well and stay well, inside and out.</p>
+          <div class="partners">
+            <span class="tag">Partner discounts</span>
+            <span><b>fit-flavors</b> · <b>Optimal Movement</b> Rehabilitation &amp; Performance · <b>Neuage</b> Health + Wellness</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="heat-cold">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="bracket">hot &amp; cold</h2>
+        <p class="lede">Heat slows everyone down. Cold wakes everyone up. We use both on purpose, and we use them together.</p>
+      </div>
+      <div class="hc">
+        <div class="hot">
+          <span class="tag">Hot therapy</span>
+          <h3 class="display">Bible talks in the sauna.</h3>
+          <p>Our sauna seats 20, not 4. Phones stay outside, nobody is going anywhere for twenty minutes, and the conversation gets honest fast. We read Scripture together, talk about it plainly, and let the heat do its work on body and mind at the same time.</p>
+          <p class="verse">"Come to me, all you who are weary and burdened, and I will give you rest."<cite>Matthew 11:28</cite></p>
+          <div class="stats">
+            <div class="stat"><b>20</b><span>Seats</span></div>
+            <div class="stat"><b>170–190°F</b><span>Sauna temp</span></div>
+            <div class="stat"><b>15–20 min</b><span>Per session</span></div>
+          </div>
+        </div>
+        <div class="cold">
+          <span class="tag">Cold therapy</span>
+          <h3 class="display">The cold plunge.</h3>
+          <p>Two to three minutes in cold water is a controlled dose of stress. You learn to breathe through the shock, to stay when everything says leave, and to notice how clear your head is afterward. We use it as a regular practice for mental health maintenance, not a stunt. Coaches walk you through your first plunge.</p>
+          <div class="stats">
+            <div class="stat"><b>39–50°F</b><span>Water temp</span></div>
+            <div class="stat"><b>2–3 min</b><span>Per plunge</span></div>
+            <div class="stat"><b>Unlimited</b><span>For members</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="memberships" class="members">
+    <div class="wrap">
+      <h2 class="bracket">memberships</h2>
+      <div class="promo">
+        <span class="tag">New members</span>
+        <p class="display">First month <span class="price">$49.</span></p>
+        <p class="promo-sub">Then pick any plan. Every membership is month to month. No contracts.</p>
+      </div>
+      <div class="tiers">
+        <div class="tier">
+          <h3 class="display">Unlimited.</h3>
+          <p>month to month <span class="price">$189/mo</span></p>
+        </div>
+        <div class="tier">
+          <h3 class="display">8 classes a month.</h3>
+          <p>month to month <span class="price">$119/mo</span></p>
+        </div>
+        <div class="tier">
+          <h3 class="display">Hero + Student</h3>
+          <p>month to month <span class="price">$99/mo</span></p>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn btn-black" href="https://lp.omenathleticsstl.com/">Start with a free class</a>
+        <a class="btn btn-outline-w" href="#included">What's included</a>
+      </div>
+      <span class="paren">social wellness club</span>
+      <p class="fine">Every plan is month to month. Cancel anytime. Your first class is always free.</p>
+    </div>
+  </section>
+
+  <section id="schedule" class="schedule">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="bracket">schedule</h2>
+        <p class="lede">Five class times a day on weekdays, run club on Saturday, and open gym in between. Lower body Monday and Thursday, upper body Tuesday and Friday, HYROX on Wednesday. Book through the schedule in the sign-up section.</p>
+      </div>
+      <div class="sched-grid">
+        <div class="sched">
+          <h3>Class schedule</h3>
+          <p class="day">Mon – Fri</p>
+          <div class="times"><span>5:00am</span><span>7:00am</span><span>8:30am</span><span>3:35pm</span><span>6:30pm</span></div>
+          <p class="day">Saturday</p>
+          <div class="times"><span>Run club</span></div>
+          <h3 style="margin-top: 1.75rem;">Weekly split</h3>
+          <dl class="split">
+            <dt>Mon + Thu</dt><dd>Lower body</dd>
+            <dt>Tue + Fri</dt><dd>Upper body</dd>
+            <dt>Wed</dt><dd>HYROX</dd>
+            <dt>Sat</dt><dd>Run club</dd>
+          </dl>
+        </div>
+        <div class="sched">
+          <h3>Open gym times</h3>
+          <p class="day">Mon – Fri</p>
+          <div class="times"><span>10am – 3pm</span></div>
+          <p class="day">Saturday</p>
+          <div class="times"><span>7am – 9am</span><span>11am – 2pm</span></div>
+          <p class="sched-note" style="margin-top: 1.25rem;">Run club meets every Saturday and is open to everyone in St. Louis, member or not.</p>
+        </div>
+        <div class="sched-photo">
+          <img src="assets/img/runner.jpg" alt="A runner in an orange top and shorts mid-stride on a St. Louis sidewalk.">
+          <span class="cap btn btn-white btn-sm" aria-hidden="true">Saturday run club</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="classes" class="classes">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="bracket">sign up</h2>
+        <p class="lede">Members: pick a class and reserve your spot. New here? <a href="https://lp.omenathleticsstl.com/">Claim your free class</a> and we'll take care of the rest when you walk in.</p>
+      </div>
+      <!-- WellnessLiving schedule widget (client-provided embed) -->
+      <div class="embed-frame" id="signup-embed">
+        <script type="module" src="https://widgets.wellnessliving.com/schedule/widget.js"></script>
+        <wl-schedule-widget k_business="739121" k_schema="0199e869-6a50-7231-8bcb-137592bb6037"></wl-schedule-widget>
+      </div>
+      <p class="classes-note">Having trouble with the schedule? Call <a href="tel:+13147627042">(314) 762-7042</a> and we'll book you by hand.</p>
+    </div>
+  </section>
+
+  <section class="runclub" aria-labelledby="runclub-h">
+    <div class="grid">
+      <div class="photo">
+        <img src="assets/img/run.jpg" alt="Omen Athletics run club crossing a downtown St. Louis street on a Saturday morning." width="1000" height="920">
+      </div>
+      <div class="copy">
+        <span class="tag" style="color: var(--orange);">Community</span>
+        <h2 id="runclub-h" class="display">Start with a <span class="circle">free<svg viewBox="0 0 120 60" aria-hidden="true"><ellipse cx="60" cy="30" rx="57" ry="26" fill="none" stroke="#FF3400" stroke-width="4" stroke-linecap="round" pathLength="100" stroke-dasharray="96 100"/></svg></span> class.</h2>
+        <p>Community is a priority for our members and for St. Louis as a whole. Run club every Saturday. Free social wellness events all year. Bring a friend. Bring a skeptic. Everyone's welcome.</p>
+        <div><a class="btn btn-orange" href="https://lp.omenathleticsstl.com/">Claim your free class</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="visit">
+    <div class="wrap visit-grid">
+      <div>
+        <h2 class="display">Come see the place.</h2>
+        <p class="lede measure" style="margin: 1rem 0 1.5rem;">The best way to understand Omen is to walk in. We're at 2665 Washington Ave in downtown St. Louis. Stop by during open gym, ask for a coach, and we'll show you around.</p>
+        <a class="btn btn-black" href="https://lp.omenathleticsstl.com/">Claim your free class</a>
+      </div>
+      <div>
+        <h3>Location</h3>
+                <address>Omen Athletics<br>2665 Washington Ave<br>St. Louis, MO 63103</address>
+        <p style="margin-top: 0.75rem;"><a href="https://maps.google.com/?q=2665+Washington+Ave+St.+Louis+MO+63103" target="_blank" rel="noopener">Get directions</a></p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><a href="tel:+13147627042">(314) 762-7042</a></p>
+        <h3 style="margin-top: 1.5rem;">Open gym</h3>
+        <div class="hours">
+          <span>Mon–Fri</span><span>10am – 3pm</span>
+          <span>Saturday</span><span>7am – 9am, 11am – 2pm</span>
+          <span>Sunday</span><span>Closed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/brand/logo-wordmark-white.png" alt="omen athletics.">
+    <div class="icons">
+      <img src="assets/brand/icon-faith-white.png" alt="faith">
+      <img src="assets/brand/icon-fitness-white.png" alt="fitness">
+      <img src="assets/brand/icon-wellness-white.png" alt="wellness">
+      <img src="assets/brand/icon-community-white.png" alt="community">
+    </div>
+    <div class="meta">
+      <img src="assets/brand/tag-social-wellness-club-white.png" alt="(social wellness club)">
+      <img src="assets/brand/badge-est-2025-white.png" alt="EST. 2025">
+      <span>© 2026 Omen Athletics</span>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
