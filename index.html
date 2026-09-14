@@ -121,8 +121,6 @@
   @media (max-width: 900px) { .inc-grid { grid-template-columns: 1fr; } }
   .results { font-size: clamp(2rem, 4.5vw, 3.75rem); margin-top: 1.25rem; color: var(--white); }
   .results span { color: var(--orange); }
-  .partners { border-top: 2px solid rgba(255,255,255,0.35); padding-top: 1.25rem; display: grid; gap: 0.5rem; color: var(--gray); font-size: 0.95rem; }
-  .partners b { color: var(--white); }
 
   /* Hot / cold / faith */
   .hc { display: grid; grid-template-columns: 1fr 1fr; border: 3px solid var(--black); }
@@ -155,9 +153,14 @@
 
   /* Schedule (gray) */
   .schedule { background: var(--gray); }
-  .sched-grid { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 2.5rem; }
+  .sched-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2.5rem; align-items: start; }
   @media (max-width: 900px) { .sched-grid { grid-template-columns: 1fr; } }
   .sched h3 { font-size: 1.1rem; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .week { width: 100%; border-collapse: collapse; }
+  .week th { text-align: left; vertical-align: top; padding: 0.75rem 1rem 0.75rem 0; font-size: 1.1rem; text-transform: uppercase; width: 4.5rem; border-top: 2px solid var(--black); }
+  .week td { padding: 0.75rem 0; border-top: 2px solid var(--black); }
+  .week .focus { display: block; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+  .week .times, .sched-week > .times { font-size: clamp(1rem, 1.5vw, 1.25rem); }
   .sched .day { font-weight: 700; margin-top: 0.75rem; }
   .times { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 400; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
   .times span { background: var(--white); padding: 0.15em 0.5em; }
@@ -251,23 +254,23 @@
     <div class="wrap">
       <div class="sec-head">
         <h2 class="bracket">whole person</h2>
-        <p class="lede">Most gyms train one thing. We think a healthy person is built in three places at once, and neglecting any one of them eventually shows up in the others. Every detail of an Omen membership was chosen because it works on all three.</p>
+        <p class="lede">At Omen Athletics, we take a whole-person approach to wellness, because we believe that real wellness is experienced body, mind, and soul. Every detail of our membership was intentionally incorporated into our member experience to ensure that our members make consistent progress toward wellness at every level.</p>
       </div>
       <div class="three">
         <div>
           <span class="num">body</span>
-          <h3 class="display">Fun. Functional. Effective.</h3>
-          <p>Group workouts programmed by AJ, who brings almost 15 years of personal training experience. You'll work hard, move well, and want to come back tomorrow. Elite-level Hyrox training for anyone chasing a start line.</p>
+          <h3 class="display">Built to compete.</h3>
+          <p>Our program is designed to produce well-rounded athletes, which makes it ideal for people training to compete in Hyrox or any other sport. Built around a traditional approach to strength and conditioning, members can expect to lift heavy, breathe hard, and be encouraged and supported as their physical limitations are exposed and overcome.</p>
         </div>
         <div>
           <span class="num">mind</span>
           <h3 class="display">Steady and clear.</h3>
-          <p>Cold plunges, sauna time, contrast therapy, and breath work classes. Mental health maintenance is part of the routine here, not an add-on. Clean music, always.</p>
+          <p>Research shows regular exercise reduces depression and anxiety as effectively as therapy or medication. Cold exposure measurably lowers stress in the hours after a plunge. And training in a group can double the endorphin response of the same workout done alone. These are a few of the intentional elements built into our member experience, designed to help people get well and stay well, mentally and emotionally.</p>
         </div>
         <div>
           <span class="num">soul</span>
-          <h3 class="display">Grow in faith, together.</h3>
-          <p>Scripture, honest conversation, and discipleship woven into the ordinary rhythm of getting well with people who know your name. Free nutrition coaching is where most of those conversations start.</p>
+          <h3 class="display">The foundation.</h3>
+          <p>We believe that humans were created and wired to know and to love one another. To be in community. Not just surface-level acquaintanceships, but <em><strong>real</strong></em> community. Our coaches set the tone by taking the time to know and to love every member, and not because it's their job, but because it's who they are. This isn't just a gym, it's a family. When you're a part of a family like this, your soul is at rest.</p>
         </div>
       </div>
     </div>
@@ -291,15 +294,10 @@
           <li>Contrast therapy and breath work group classes</li>
           <li>Free access to <span class="hl">all</span> Omen Athletics social wellness events</li>
           <li>Coaches, wellness professionals, and a community that values social, emotional, and spiritual wellness as much as physical wellness</li>
-          <li>Exclusive discounts at top-tier local wellness businesses in St. Louis</li>
         </ul>
         <div>
           <p class="display results">And most importantly: <span>results.</span></p>
           <p class="lede" style="margin: 1.25rem 0 2rem; color: var(--gray);">Our mission is to help you get well and stay well, inside and out.</p>
-          <div class="partners">
-            <span class="tag">Partner discounts</span>
-            <span><b>fit-flavors</b> · <b>Optimal Movement</b> Rehabilitation &amp; Performance · <b>Neuage</b> Health + Wellness</span>
-          </div>
         </div>
       </div>
     </div>
@@ -309,28 +307,28 @@
     <div class="wrap">
       <div class="sec-head">
         <h2 class="bracket">hot &amp; cold</h2>
-        <p class="lede">Heat slows everyone down. Cold wakes everyone up. We use both on purpose, and we use them together.</p>
+        <p class="lede">Heat trains the heart. Cold lowers the baseline. Both are unlimited for members, and both work best when they're a habit.</p>
       </div>
       <div class="hc">
         <div class="hot">
           <span class="tag">Hot therapy</span>
-          <h3 class="display">Bible talks in the sauna.</h3>
-          <p>Our sauna seats 20, not 4. Phones stay outside, nobody is going anywhere for twenty minutes, and the conversation gets honest fast. We read Scripture together, talk about it plainly, and let the heat do its work on body and mind at the same time.</p>
-          <p class="verse">"Come to me, all you who are weary and burdened, and I will give you rest."<cite>Matthew 11:28</cite></p>
+          <h3 class="display">The heat is training your heart.</h3>
+          <p>Twenty minutes at 180°F drives your heart rate and blood vessels the way moderate exercise does. Finnish researchers followed 2,300 men for two decades: those using a sauna four to seven times a week had a 63% lower risk of sudden cardiac death than once-a-week users, and sessions past nineteen minutes carried the strongest effect. So we built ours to seat 20 and run long. Sit down. Stay the whole time.</p>
+          <p class="verse">"Above all else, guard your heart, for everything you do flows from it."<cite>Proverbs 4:23</cite></p>
           <div class="stats">
             <div class="stat"><b>20</b><span>Seats</span></div>
-            <div class="stat"><b>170–190°F</b><span>Sauna temp</span></div>
-            <div class="stat"><b>15–20 min</b><span>Per session</span></div>
+            <div class="stat"><b>180°F</b><span>Sauna temp</span></div>
+            <div class="stat"><b>20 min</b><span>Per session</span></div>
           </div>
         </div>
         <div class="cold">
           <span class="tag">Cold therapy</span>
-          <h3 class="display">The cold plunge.</h3>
-          <p>Two to three minutes in cold water is a controlled dose of stress. You learn to breathe through the shock, to stay when everything says leave, and to notice how clear your head is afterward. We use it as a regular practice for mental health maintenance, not a stunt. Coaches walk you through your first plunge.</p>
+          <h3 class="display">The cold leaves. The calm stays.</h3>
+          <p>Two to three minutes in cold water is a controlled dose of stress. The clear head comes fast, but in the trial data the measurable drop in stress shows up about twelve hours later, then fades. Which is the whole argument for making this daily instead of occasional. One plunge is an experience. A plunge every day is a lower baseline. Unlimited access, on purpose. Coaches walk you through your first one.</p>
           <div class="stats">
             <div class="stat"><b>39–50°F</b><span>Water temp</span></div>
             <div class="stat"><b>2–3 min</b><span>Per plunge</span></div>
-            <div class="stat"><b>Unlimited</b><span>For members</span></div>
+            <div class="stat"><b>Daily</b><span>Recommended</span></div>
           </div>
         </div>
       </div>
@@ -372,30 +370,24 @@
     <div class="wrap">
       <div class="sec-head">
         <h2 class="bracket">schedule</h2>
-        <p class="lede">Five class times a day on weekdays, run club on Saturday, and open gym in between. Lower body Monday and Thursday, upper body Tuesday and Friday, HYROX on Wednesday. Book through the schedule in the sign-up section.</p>
+        <p class="lede">Six class times a day on weekdays, HYROX and run club on Saturday, and open gym in between. Book through the schedule in the sign-up section.</p>
       </div>
       <div class="sched-grid">
-        <div class="sched">
+        <div class="sched sched-week">
           <h3>Class schedule</h3>
-          <p class="day">Mon – Fri</p>
-          <div class="times"><span>5:00am</span><span>7:00am</span><span>8:30am</span><span>3:35pm</span><span>6:30pm</span></div>
-          <p class="day">Saturday</p>
-          <div class="times"><span>Run club</span></div>
-          <h3 style="margin-top: 1.75rem;">Weekly split</h3>
-          <dl class="split">
-            <dt>Mon + Thu</dt><dd>Lower body</dd>
-            <dt>Tue + Fri</dt><dd>Upper body</dd>
-            <dt>Wed</dt><dd>HYROX</dd>
-            <dt>Sat</dt><dd>Run club</dd>
-          </dl>
-        </div>
-        <div class="sched">
-          <h3>Open gym times</h3>
-          <p class="day">Mon – Fri</p>
-          <div class="times"><span>10am – 3pm</span></div>
-          <p class="day">Saturday</p>
-          <div class="times"><span>7am – 9am</span><span>11am – 2pm</span></div>
-          <p class="sched-note" style="margin-top: 1.25rem;">Run club meets every Saturday and is open to everyone in St. Louis, member or not.</p>
+          <table class="week">
+            <tbody>
+              <tr><th>Mon</th><td><span class="focus">Lower body</span><div class="times"><span>5:00am</span><span>7:00am</span><span>8:30am</span><span>3:35pm</span><span>5:00pm</span><span>6:30pm</span></div></td></tr>
+              <tr><th>Tue</th><td><span class="focus">Upper body</span><div class="times"><span>5:00am</span><span>7:00am</span><span>8:30am</span><span>3:35pm</span><span>5:00pm</span><span>6:30pm</span></div></td></tr>
+              <tr><th>Wed</th><td><span class="focus">HYROX</span><div class="times"><span>5:00am</span><span>7:00am</span><span>8:30am</span><span>3:35pm</span><span>5:00pm</span><span>6:30pm</span></div></td></tr>
+              <tr><th>Thu</th><td><span class="focus">Lower body</span><div class="times"><span>5:00am</span><span>7:00am</span><span>8:30am</span><span>3:35pm</span><span>5:00pm</span><span>6:30pm</span></div></td></tr>
+              <tr><th>Fri</th><td><span class="focus">Upper body</span><div class="times"><span>5:00am</span><span>7:00am</span><span>8:30am</span><span>3:35pm</span><span>5:00pm</span><span>6:30pm</span></div></td></tr>
+              <tr><th>Sat</th><td><span class="focus">HYROX + Run club</span><div class="times"><span>8:30am HYROX</span><span>Run club</span></div></td></tr>
+              <tr><th>Sun</th><td><span class="focus">Rest</span></td></tr>
+            </tbody>
+          </table>
+          <h3 style="margin-top: 1.75rem;">Open gym</h3>
+          <div class="times"><span>Mon–Fri 10am – 3pm</span><span>Sat 7am – 9am</span><span>Sat 11am – 2pm</span></div>
         </div>
         <div class="sched-photo">
           <img src="assets/img/runner.jpg" alt="A runner in an orange top and shorts mid-stride on a St. Louis sidewalk.">
