@@ -74,6 +74,19 @@
   nav a:hover { color: var(--orange); }
   @media (max-width: 800px) { nav { display: none; } }
   .btn-sm { padding: 0.7rem 1rem; font-size: 0.85rem; }
+  .hdr-actions { display: flex; gap: 0.5rem; align-items: center; }
+  button.btn { font-family: inherit; cursor: pointer; }
+  @media (max-width: 480px) { .hdr-actions .btn-orange { display: none; } }
+
+  /* Store modal */
+  .store-modal { border: 3px solid var(--black); padding: 0; width: min(960px, calc(100% - 2rem)); max-height: calc(100vh - 2rem); background: var(--white); color: var(--black); }
+  .store-modal::backdrop { background: rgba(0,0,0,0.7); }
+  .store-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 3px solid var(--black); }
+  .store-head h2 { font-size: 1.5rem; }
+  .store-close { background: none; border: 0; font: inherit; font-weight: 800; text-transform: uppercase; cursor: pointer; padding: 0.5rem; }
+  .store-close:hover { color: var(--orange); }
+  .store-body { padding: 1rem 1.25rem 1.5rem; overflow: auto; max-height: calc(100vh - 8rem); }
+  .store-body wl-store-widget { display: block; min-height: 420px; }
 
   /* Hero */
   .hero { position: relative; background: var(--black); color: var(--cream); overflow: hidden; }
@@ -222,7 +235,10 @@
       <a href="#schedule">Schedule</a>
       <a href="#visit">Visit</a>
     </nav>
-    <a class="btn btn-orange btn-sm" href="https://lp.omenathleticsstl.com/">Claim your free class</a>
+    <div class="hdr-actions">
+      <button class="btn btn-black btn-sm" type="button" data-open-store>Join</button>
+      <a class="btn btn-orange btn-sm" href="https://lp.omenathleticsstl.com/">Claim your free class</a>
+    </div>
   </div>
 </header>
 
@@ -338,6 +354,11 @@
   <section id="memberships" class="members">
     <div class="wrap">
       <h2 class="bracket">memberships</h2>
+      <div class="promo">
+        <span class="tag">New members</span>
+        <p class="display">First month <span class="price">$49.</span></p>
+        <p class="promo-sub">Then pick any plan. Every membership is month to month. No contracts.</p>
+      </div>
       <div class="tiers">
         <div class="tier">
           <h3 class="display">Unlimited.</h3>
@@ -353,8 +374,8 @@
         </div>
       </div>
       <div class="actions">
-        <a class="btn btn-black" href="https://lp.omenathleticsstl.com/">Start with a free class</a>
-        <a class="btn btn-outline-w" href="#included">What's included</a>
+        <button class="btn btn-black" type="button" data-open-store>Join now</button>
+        <a class="btn btn-outline-w" href="https://lp.omenathleticsstl.com/">Start with a free class</a>
       </div>
       <span class="paren">social wellness club</span>
       <p class="fine">Every plan is month to month. Cancel anytime. Your first class is always free.</p>
@@ -446,6 +467,32 @@
     </div>
   </section>
 </main>
+
+<dialog class="store-modal" id="store-modal" aria-labelledby="store-title">
+  <div class="store-head">
+    <h2 id="store-title" class="bracket">join</h2>
+    <button class="store-close" type="button" data-close-store aria-label="Close">Close ×</button>
+  </div>
+  <div class="store-body">
+    <!-- WellnessLiving store widget (client-provided embed) -->
+    <script type="module" src="https://widgets.wellnessliving.com/store/widget.js"></script>
+    <wl-store-widget k_business="739121" k_schema="01a0fd7b-153b-71a8-9592-2587727fee70"></wl-store-widget>
+  </div>
+</dialog>
+
+<script>
+  (function () {
+    var dlg = document.getElementById('store-modal');
+    if (!dlg) return;
+    document.querySelectorAll('[data-open-store]').forEach(function (b) {
+      b.addEventListener('click', function () { dlg.showModal(); });
+    });
+    document.querySelectorAll('[data-close-store]').forEach(function (b) {
+      b.addEventListener('click', function () { dlg.close(); });
+    });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  })();
+</script>
 
 <footer>
   <div class="wrap">
